@@ -79,6 +79,7 @@ $session = session();
                     <div class="user-plan-wrap">
                       <div class="user-plan">
                         <div class="user-plan-info">
+                          <div class="user-plan-title">All Departments</div>
                         </div>
                         <div class="user-plan-actions">
                           <ul class="btn-toolbar align-center g-4">
@@ -89,7 +90,28 @@ $session = session();
                         </div>
                       </div>
                     </div>
-
+                    <div class="card card-preview">
+                      <div class="card-inner">
+                        <table class="datatable-init table">
+                          <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Options</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                            <?php foreach ($departments as $department):?>
+                              <tr>
+                                <td><?=$department['name']?></td>
+                                <td style="width: 10%">
+                                  <a href="javascript:void(0)" class="link link-sm"><span>Edit</span></a>
+                                </td>
+                              </tr>
+                            <?php endforeach;?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div><!-- .card-preview -->
                   </div><!-- .nk-block -->
                 </div><!-- .nk-fmg-body-content -->
               </div><!-- .nk-fmg-body -->
@@ -129,5 +151,6 @@ $session = session();
   </div>
 </div>
 <?php include('_scripts.php');?>
+<?php include('_settings-script.php');?>
 </body>
 </html>

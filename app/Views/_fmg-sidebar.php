@@ -7,8 +7,8 @@
   <div class="nk-fmg-aside-wrap">
     <div class="nk-fmg-aside-top">
       <ul class="nk-fmg-menu">
-        <li class="<?=$uri->getSegment(1) == 'dashboard' ? 'active': ''?>">
-          <a class="nk-fmg-menu-item" href="html/apps/file-manager.html">
+        <li class="<?=$uri->getSegment(1) == '' || $uri->getSegment(1) == 'dashboard' ? 'active': ''?>">
+          <a class="nk-fmg-menu-item" href="/dashboard">
             <em class="icon ni ni-home-alt"></em>
             <span class="nk-fmg-menu-text">Home</span>
           </a>
