@@ -79,6 +79,7 @@ $session = session();
                     <div class="user-plan-wrap">
                       <div class="user-plan">
                         <div class="user-plan-info">
+                          <div class="user-plan-title">All Users</div>
                         </div>
                         <div class="user-plan-actions">
                           <ul class="btn-toolbar align-center g-4">
@@ -89,6 +90,21 @@ $session = session();
                         </div>
                       </div>
                     </div>
+                    <div class="card card-preview">
+                      <div class="card-inner">
+                        <table class="datatable-init table">
+                          <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th>Option</th>
+                          </tr>
+                          </thead>
+                          <tbody></tbody>
+                        </table>
+                      </div>
+                    </div><!-- .card-preview -->
 
                   </div><!-- .nk-block -->
                 </div><!-- .nk-fmg-body-content -->

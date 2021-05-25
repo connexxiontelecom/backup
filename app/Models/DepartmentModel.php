@@ -4,7 +4,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class DepartmentModel extends Model {
-  protected $table = 'department';
+  protected $table = 'departments';
   protected $primaryKey = 'department_id';
   protected $allowedFields = [
     'name'
