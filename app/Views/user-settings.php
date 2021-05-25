@@ -1,5 +1,6 @@
 <?php
 $session = session();
+//print_r($users);
 ?>
 <!DOCTYPE html>
 <html lang="en" class="js">
@@ -94,14 +95,33 @@ $session = session();
                       <div class="card-inner">
                         <table class="datatable-init table">
                           <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Status</th>
-                            <th>Option</th>
-                          </tr>
+                            <tr>
+                              <th>Name</th>
+                              <th>Login Key</th>
+                              <th>Department</th>
+                              <th>Status</th>
+                              <th>Option</th>
+                            </tr>
                           </thead>
-                          <tbody></tbody>
+                          <tbody>
+                          <?php foreach ($users as $user):?>
+                            <tr>
+                              <td><?=$user['name']?></td>
+                              <td><?=$user['login']?></td>
+                              <td><?=$user['department']['name']?></td>
+                              <td>
+                                <?php if ($user['status'] == 1): ?>
+                                  <div class="badge badge-dot badge-success">Active</div>
+                                <?php else:?>
+                                  <div class="badge badge-dot badge-danger">Inactive</div>
+                                <?php endif;?>
+                              </td>
+                              <td style="width: 10%">
+                                <a href="javascript:void(0)" class="link link-sm"><span>Edit</span></a>
+                              </td>
+                            </tr>
+                          <?php endforeach;?>
+                          </tbody>
                         </table>
                       </div>
                     </div><!-- .card-preview -->
@@ -154,13 +174,13 @@ $session = session();
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="department">Department </label>
+            <label class="form-label" for="department">Department <span style="color: red"> *</span></label>
             <div class="form-control-wrap">
               <select class="form-select form-control" data-search="on" id="department" name="department">
-                <option value="default">Default Option</option>
-<!--                --><?php //foreach ($departments as $department):?>
-<!--                  <option value="--><?//= $department['department_id'] ?><!--">--><?//=$department['name']?><!--</option>-->
-<!--                --><?php //endforeach;?>
+                <option value="">Default Option</option>
+                <?php foreach ($departments as $department):?>
+                  <option value="<?= $department['department_id'] ?>"><?=$department['name']?></option>
+                <?php endforeach;?>
               </select>
             </div>
             <div class="form-note">
@@ -187,5 +207,6 @@ $session = session();
   </div>
 </div>
 <?php include('_scripts.php');?>
+<?php include('_settings-script.php');?>
 </body>
 </html>
