@@ -6,6 +6,9 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('index');
+	  if ($this->session->active) {
+      return view('index');
+    }
+	  return redirect('auth');
 	}
 }
