@@ -25,7 +25,7 @@
         <div class="nk-sidebar-footer">
           <ul class="nk-menu nk-menu-md">
             <li class="nk-menu-item">
-              <a href="#" class="nk-menu-link" title="Settings">
+              <a href="/settings/users" class="nk-menu-link" title="Settings">
                 <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
               </a>
             </li>
@@ -35,31 +35,29 @@
       <div class="nk-sidebar-profile nk-sidebar-profile-fixed dropdown">
         <a href="#" data-toggle="dropdown" data-offset="50,-60">
           <div class="user-avatar">
-            <span>AB</span>
+            <em class="icon ni ni-user-alt"></em>
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-md ml-4">
           <div class="dropdown-inner user-card-wrap d-none d-md-block">
             <div class="user-card">
               <div class="user-avatar">
-                <span>AB</span>
+                <em class="icon ni ni-user-alt"></em>
               </div>
               <div class="user-info">
-                <span class="lead-text">Abu Bin Ishtiyak</span>
-                <span class="sub-text text-soft">info@softnio.com</span>
+                <span class="lead-text"><?=$session->get('name')?></span>
+                <span class="sub-text text-soft"><?=$session->get('email')?></span>
               </div>
             </div>
           </div>
           <div class="dropdown-inner">
             <ul class="link-list">
-              <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
               <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-              <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
             </ul>
           </div>
           <div class="dropdown-inner">
             <ul class="link-list">
-              <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+              <li><a href="/auth/logout"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
             </ul>
           </div>
         </div>
