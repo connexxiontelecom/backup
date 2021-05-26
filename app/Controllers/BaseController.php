@@ -3,13 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\DepartmentModel;
+use App\Models\FileModel;
 use App\Models\UserModel;
+
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+
+use Aws\S3\S3Client;
 
 /**
  * Class BaseController
@@ -43,6 +47,7 @@ class BaseController extends Controller
 	protected $validation;
 
 	protected $departmentModel;
+	protected $fileModel;
 	protected $userModel;
 	/**
 	 * Constructor.
@@ -63,6 +68,7 @@ class BaseController extends Controller
 		 $this->validation = \Config\Services::validation();
 
 		 $this->departmentModel = new DepartmentModel();
+		 $this->fileModel = new FileModel();
 		 $this->userModel = new UserModel();
 	}
 }

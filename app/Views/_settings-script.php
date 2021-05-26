@@ -61,37 +61,37 @@
         Swal.fire("Invalid Submission", "A department is required!", "error");
       } else {
         let formData = new FormData(this)
-        for (var pair of formData.entries()) {
-          console.log(pair[0]+ ', ' + pair[1]);
-        }
-        //Swal.fire({
-        //  title: 'Are you sure?',
-        //  text: 'This will add a new user to the backup',
-        //  icon: 'warning',
-        //  showCancelButton: true,
-        //  confirmButtonText: 'Confirm'
-        //}).then(function (confirm) {
-        //  if (confirm.value) {
-        //    $.ajax({
-        //      url: '<?//=site_url('settings/create_user')?>//',
-        //      type: 'post',
-        //      data: formData,
-        //      success: function (data) {
-        //        if (data.success) {
-        //          Swal.fire('Confirmed!', data.msg, 'success').then(() => {
-        //            location.href = '<?//=site_url('/settings/users')?>//'
-        //          })
-        //        } else {
-        //          Swal.fire('Sorry!', data.msg, 'error')
-        //          console.log(data.meta)
-        //        }
-        //      },
-        //      cache: false,
-        //      contentType: false,
-        //      processData: false
-        //    })
-        //  }
-        //})
+        // for (var pair of formData.entries()) {
+        //   console.log(pair[0]+ ', ' + pair[1]);
+        // }
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'This will add a new user to the backup',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Confirm'
+        }).then(function (confirm) {
+          if (confirm.value) {
+            $.ajax({
+              url: '<?=site_url('settings/create_user')?>',
+              type: 'post',
+              data: formData,
+              success: function (data) {
+                if (data.success) {
+                  Swal.fire('Confirmed!', data.msg, 'success').then(() => {
+                    location.href = '<?=site_url('/settings/users')?>'
+                  })
+                } else {
+                  Swal.fire('Sorry!', data.msg, 'error')
+                  console.log(data.meta)
+                }
+              },
+              cache: false,
+              contentType: false,
+              processData: false
+            })
+          }
+        })
       }
     })
 
