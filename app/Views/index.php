@@ -77,51 +77,88 @@
                           </div><!-- .search-wrap -->
                         </div>
                       </div>
-                      <div class="nk-fmg-quick-list nk-block">
-                        <div class="nk-block-head-xs">
-                          <div class="nk-block-between g-2">
-                            <div class="nk-block-head-content">
-                              <h6 class="nk-block-title title">Quick Access</h6>
-                            </div>
-                            <div class="nk-block-head-content">
-                              <a href="#" class="link link-primary toggle-opt active" data-target="quick-access">
-                                <div class="inactive-text">Show</div>
-                                <div class="active-text">Hide</div>
-                              </a>
-                            </div>
-                          </div>
-                        </div><!-- .nk-block-head -->
-                        <div class="toggle-expand-content expanded" data-content="quick-access">
-                          <div class="nk-files nk-files-view-grid">
-                            <div class="nk-files-list">
-<!--                              <div class="nk-file-item nk-file">-->
-<!--                                <div class="nk-file-info">-->
-<!--                                  <a href="#" class="nk-file-link">-->
-<!--                                    <div class="nk-file-title">-->
-<!--                                      <div class="nk-file-icon">-->
-<!--                                        <span class="nk-file-icon-type">-->
-<!--                                          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 72 72">-->
-<!--                                            <path fill="#6C87FE" d="M57.5,31h-23c-1.4,0-2.5-1.1-2.5-2.5v-10c0-1.4,1.1-2.5,2.5-2.5h23c1.4,0,2.5,1.1,2.5,2.5v10C60,29.9,58.9,31,57.5,31z" />-->
-<!--                                            <path fill="#8AA3FF" d="M59.8,61H12.2C8.8,61,6,58,6,54.4V17.6C6,14,8.8,11,12.2,11h18.5c1.7,0,3.3,1,4.1,2.6L38,24h21.8c3.4,0,6.2,2.4,6.2,6v24.4C66,58,63.2,61,59.8,61z" />-->
-<!--                                            <path display="none" fill="#8AA3FF" d="M62.1,61H9.9C7.8,61,6,59.2,6,57c0,0,0-31.5,0-42c0-2.2,1.8-4,3.9-4h19.3c1.6,0,3.2,0.2,3.9,2.3l2.7,6.8c0.5,1.1,1.6,1.9,2.8,1.9h23.5c2.2,0,3.9,1.8,3.9,4v31C66,59.2,64.2,61,62.1,61z" />-->
-<!--                                            <path fill="#798BFF" d="M7.7,59c2.2,2.4,4.7,2,6.3,2h45c1.1,0,3.2,0.1,5.3-2H7.7z" />-->
-<!--                                          </svg>-->
-<!--                                        </span>-->
-<!--                                      </div>-->
-<!--                                      <div class="nk-file-name">-->
-<!--                                        <div class="nk-file-name-text">-->
-<!--                                          <span href="#" class="title">UI Design</span>-->
-<!--                                        </div>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </a>-->
-<!--                                </div>-->
-<!--                                <div class="nk-file-actions hideable">-->
-<!--                                  <a href="#" class="btn btn-sm btn-icon btn-trigger"><em class="icon ni ni-cross"></em></a>-->
-<!--                                </div>-->
-<!--                              </div>-->
-                            </div>
-                          </div><!-- .nk-files -->
+                      <div class="nk-block">
+                        <div class="row g-gs">
+                          <div class="col-xl-3 col-lg-3 col-md-3">
+                            <div class="card card-bordered">
+                              <div class="card-inner">
+                                <div class="card-title-group align-start mb-2">
+                                  <div class="card-title">
+                                    <h6 class="title">All Files</h6>
+                                  </div>
+                                  <div class="card-tools">
+                                    <a href="#" class="link link-sm">View More</a>
+                                  </div>
+                                </div>
+                                <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
+                                  <div class="nk-sale-data">
+                                    <span class="amount">0</span>
+                                    <span class="sub-title">Total files uploaded</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div><!-- .card -->
+                          </div><!-- .col -->
+                          <div class="col-xl-3 col-lg-3 col-md-3">
+                            <div class="card card-bordered">
+                              <div class="card-inner">
+                                <div class="card-title-group align-start mb-2">
+                                  <div class="card-title">
+                                    <h6 class="title">Starred Files</h6>
+                                  </div>
+                                  <div class="card-tools">
+                                    <a href="" class="link link-sm">View More</a>
+                                  </div>
+                                </div>
+                                <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
+                                  <div class="nk-sale-data">
+                                    <span class="amount">0</span>
+                                    <span class="sub-title">Total files starred</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div><!-- .card -->
+                          </div><!-- .col -->
+                          <div class="col-xl-3 col-lg-3 col-md-3">
+                            <div class="card card-bordered">
+                              <div class="card-inner">
+                                <div class="card-title-group align-start mb-2">
+                                  <div class="card-title">
+                                    <h6 class="title">Shared Files</h6>
+                                  </div>
+                                  <div class="card-tools">
+                                    <a href="" class="link link-sm">View More</a>
+                                  </div>
+                                </div>
+                                <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
+                                  <div class="nk-sale-data">
+                                    <span class="amount">0</span>
+                                    <span class="sub-title">Files shared with me</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div><!-- .card -->
+                          </div><!-- .col -->
+                          <div class="col-xl-3 col-lg-3 col-md-3">
+                            <div class="card card-bordered">
+                              <div class="card-inner">
+                                <div class="card-title-group align-start mb-2">
+                                  <div class="card-title">
+                                    <h6 class="title">Deleted files</h6>
+                                  </div>
+                                  <div class="card-tools">
+                                    <a href="/subscription" class="link link-sm">View More</a>
+                                  </div>
+                                </div>
+                                <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
+                                  <div class="nk-sale-data">
+                                    <span class="amount">0</span>
+                                    <span class="sub-title">Total files deleted</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div><!-- .card -->
+                          </div><!-- .col -->
                         </div>
                       </div>
                       <div class="nk-fmg-listing nk-block">
@@ -244,55 +281,6 @@
                                     </div>
                                     <ul class="nk-file-desc">
                                       <li class="date">Yesterday</li>
-                                      <li class="size">235 KB</li>
-                                      <li class="members">3 Members</li>
-                                    </ul>
-                                  </div>
-                                  <div class="nk-file-actions">
-                                    <div class="dropdown">
-                                      <a href="" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                      <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="link-list-plain no-bdr">
-                                          <li><a href="#file-details" data-toggle="modal"><em class="icon ni ni-eye"></em><span>Details</span></a></li>
-                                          <li><a href="#file-share" data-toggle="modal"><em class="icon ni ni-share"></em><span>Share</span></a></li>
-                                          <li><a href="#file-copy" data-toggle="modal"><em class="icon ni ni-copy"></em><span>Copy</span></a></li>
-                                          <li><a href="#file-move" data-toggle="modal"><em class="icon ni ni-forward-arrow"></em><span>Move</span></a></li>
-                                          <li><a href="#" class="file-dl-toast"><em class="icon ni ni-download"></em><span>Download</span></a></li>
-                                          <li><a href="#"><em class="icon ni ni-pen"></em><span>Rename</span></a></li>
-                                          <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div><!-- .nk-file -->
-                                <div class="nk-file-item nk-file">
-                                  <div class="nk-file-info">
-                                    <div class="nk-file-title">
-                                      <div class="nk-file-icon">
-                                                                            <span class="nk-file-icon-type">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-                                                                                    <g>
-                                                                                        <rect x="16" y="14" width="40" height="44" rx="6" ry="6" style="fill:#7e95c4" />
-                                                                                        <rect x="32" y="17" width="8" height="2" rx="1" ry="1" style="fill:#fff" />
-                                                                                        <rect x="32" y="22" width="8" height="2" rx="1" ry="1" style="fill:#fff" />
-                                                                                        <rect x="32" y="27" width="8" height="2" rx="1" ry="1" style="fill:#fff" />
-                                                                                        <rect x="32" y="32" width="8" height="2" rx="1" ry="1" style="fill:#fff" />
-                                                                                        <rect x="32" y="37" width="8" height="2" rx="1" ry="1" style="fill:#fff" />
-                                                                                        <path d="M35,14h2a0,0,0,0,1,0,0V43a1,1,0,0,1-1,1h0a1,1,0,0,1-1-1V14A0,0,0,0,1,35,14Z" style="fill:#fff" />
-                                                                                        <path d="M38.0024,42H33.9976A1.9976,1.9976,0,0,0,32,43.9976v2.0047A1.9976,1.9976,0,0,0,33.9976,48h4.0047A1.9976,1.9976,0,0,0,40,46.0024V43.9976A1.9976,1.9976,0,0,0,38.0024,42Zm-.0053,4H34V44h4Z" style="fill:#fff" />
-                                                                                    </g>
-                                                                                </svg>
-                                                                            </span>
-                                      </div>
-                                      <div class="nk-file-name">
-                                        <div class="nk-file-name-text">
-                                          <a href="#" class="title">dashlite...1.2.zip</a>
-                                          <div class="asterisk"><a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a></div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <ul class="nk-file-desc">
-                                      <li class="date">03 May</li>
                                       <li class="size">235 KB</li>
                                       <li class="members">3 Members</li>
                                     </ul>
