@@ -65,15 +65,6 @@ $session = session();
                       <li class="nav-item">
                         <a class="nav-link" href="/settings/departments">Departments</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Security</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Billings</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Notifications</a>
-                      </li>
                     </ul><!-- .nk-nav -->
                   </div>
                   <div class="nk-block nk-block-xs pt-0">
