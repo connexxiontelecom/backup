@@ -13,8 +13,8 @@
             <span class="nk-fmg-menu-text">Home</span>
           </a>
         </li>
-        <li>
-          <a class="nk-fmg-menu-item" href="html/apps/files.html">
+        <li class="<?=$uri->getSegment(1) == 'file' ? 'active': ''?>">
+          <a class="nk-fmg-menu-item" href="/file">
             <em class="icon ni ni-file-docs"></em>
             <span class="nk-fmg-menu-text">Files</span>
           </a>

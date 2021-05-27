@@ -36,7 +36,6 @@
                 <div class="form-group">
                   <div class="form-label-group">
                     <label class="form-label" for="password">Passcode</label>
-                    <a class="link link-primary link-sm" href="javascript:void(0)">Forgot Code?</a>
                   </div>
                   <div class="form-control-wrap">
                     <a href="#" class="form-icon form-icon-right passcode-switch" data-target="password">

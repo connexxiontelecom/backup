@@ -8,7 +8,8 @@ class File extends BaseController {
 
   public function index() {
     if ($this->session->active) {
-      return view('index');
+      $page_data['files'] = $this->fileModel->where('user_id', $this->session->user_id)->findAll();
+      return view('files', $page_data);
     }
     return redirect('auth');
   }
@@ -69,24 +70,29 @@ class File extends BaseController {
         ],
       ]);
       $file = $this->fileModel->find($file_id);
-      try {
-        $result = $s3->getObject([
-          'Bucket' => getenv('S3_BUCKET'),
-          'Key' => $file['name'],
-        ]);
-        header("Content-Type: {$result['ContentType']}");
-        header('Content-Disposition: attachment; filename=' . $file['name']);
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        echo $result['Body'];
-      } catch (\Exception $e) {
-        $response_data['success'] = false;
-        $response_data['msg'] = $e->getMessage();
+      if ($file) {
+        try {
+          $result = $s3->getObject([
+            'Bucket' => getenv('S3_BUCKET'),
+            'Key' => $file['name'],
+          ]);
+          header("Content-Type: {$result['ContentType']}");
+          header('Content-Disposition: attachment; filename=' . $file['name']);
+          header('Expires: 0');
+          header('Cache-Control: must-revalidate');
+          header('Pragma: public');
+          echo $result['Body'];
+        } catch (\Exception $e) {
+          $response_data['success'] = false;
+          $response_data['msg'] = $e->getMessage();
+          return $this->response->setJSON($response_data);
+        }
+        $response_data['success'] = true;
+        $response_data['msg'] = 'File download successful';
         return $this->response->setJSON($response_data);
       }
-      $response_data['success'] = true;
-      $response_data['msg'] = 'File download successful';
+      $response_data['success'] = false;
+      $response_data['msg'] = 'File not found';
       return $this->response->setJSON($response_data);
     }
     return redirect('auth');

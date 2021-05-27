@@ -27,7 +27,7 @@
             $('#uploading-file').attr('hidden', true)
             if (data.success) {
               Swal.fire('Confirmed!', data.msg, 'success').then(() => {
-                location.reload()
+                location.href = '<?=site_url('/file')?>'
               })
             } else {
               Swal.fire('Sorry!', data.msg, 'error')
