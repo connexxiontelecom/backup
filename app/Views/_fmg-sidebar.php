@@ -37,12 +37,14 @@
             <span class="nk-fmg-menu-text">Recovery</span>
           </a>
         </li>
-        <li class="<?=$uri->getSegment(1) == 'settings' ? 'active': ''?>">
-          <a class="nk-fmg-menu-item" href="/settings/users">
-            <em class="icon ni ni-setting-alt"></em>
-            <span class="nk-fmg-menu-text">Settings</span>
-          </a>
-        </li>
+        <?php if($session->get('login') == 'admin'):?>
+          <li class="<?=$uri->getSegment(1) == 'settings' ? 'active': ''?>">
+            <a class="nk-fmg-menu-item" href="/settings/users">
+              <em class="icon ni ni-setting-alt"></em>
+              <span class="nk-fmg-menu-text">Settings</span>
+            </a>
+          </li>
+        <?php endif?>
       </ul>
     </div>
   </div>
