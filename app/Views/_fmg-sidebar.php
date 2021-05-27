@@ -20,19 +20,19 @@
           </a>
         </li>
         <li>
-          <a class="nk-fmg-menu-item" href="html/apps/starred.html">
+          <a class="nk-fmg-menu-item" href="javascript:void(0)">
             <em class="icon ni ni-star"></em>
             <span class="nk-fmg-menu-text">Starred</span>
           </a>
         </li>
         <li>
-          <a class="nk-fmg-menu-item" href="html/apps/shared.html">
+          <a class="nk-fmg-menu-item" href="javascript:void(0)">
             <em class="icon ni ni-share-alt"></em>
             <span class="nk-fmg-menu-text">Shared</span>
           </a>
         </li>
         <li>
-          <a class="nk-fmg-menu-item" href="html/apps/recovery.html">
+          <a class="nk-fmg-menu-item" href="javascript:void(0)">
             <em class="icon ni ni-trash-alt"></em>
             <span class="nk-fmg-menu-text">Recovery</span>
           </a>
