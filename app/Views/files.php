@@ -156,7 +156,7 @@ function format_bytes($bytes, $precision = 2) {
 <!--                                    <li><a href="#file-share" data-toggle="modal"><em class="icon ni ni-share"></em><span>Share</span></a></li>-->
 <!--                                    <li><a href="#file-copy" data-toggle="modal"><em class="icon ni ni-copy"></em><span>Copy</span></a></li>-->
 <!--                                    <li><a href="#file-move" data-toggle="modal"><em class="icon ni ni-forward-arrow"></em><span>Move</span></a></li>-->
-                                    <li><a href="/file/download_file/<?=$file['file_id']?>" class="file-dl-toast"><em class="icon ni ni-download"></em><span>Download</span></a></li>
+                                    <li><a href="/file/download_file/<?=$file['file_id']?>" class="file-dl-toast" target="_blank"><em class="icon ni ni-download"></em><span>Download</span></a></li>
 <!--                                    <li><a href="#"><em class="icon ni ni-pen"></em><span>Rename</span></a></li>-->
 <!--                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>-->
                                   </ul>
@@ -221,6 +221,5 @@ function format_bytes($bytes, $precision = 2) {
   </div><!-- .modla-dialog -->
 </div><!-- .modal -->
 <?php include('_scripts.php');?>
-<?php include('_index-scripts.php');?>
 </body>
 </html>

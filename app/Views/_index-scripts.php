@@ -44,5 +44,7 @@
         sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
       return (bytes / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + sizes[i];
     }
+
+
   })
 </script>
