@@ -43,7 +43,7 @@
                               <div class="dropdown-menu dropdown-menu-right">
                                 <ul class="link-list-opt no-bdr">
                                   <li><a href="#file-upload" data-toggle="modal"><em class="icon ni ni-upload-cloud"></em><span>Upload File</span></a></li>
-                                  <li><a href="#"><em class="icon ni ni-folder-plus"></em><span>Create Folder</span></a></li>
+                                  <li><a href="#create-folder" data-toggle="modal"><em class="icon ni ni-folder-plus"></em><span>Create Folder</span></a></li>
                                 </ul>
                               </div>
                             </div>
@@ -69,7 +69,7 @@
                                   <div class="dropdown-menu dropdown-menu-right">
                                     <ul class="link-list-opt no-bdr">
                                       <li><a href="#file-upload" data-toggle="modal"><em class="icon ni ni-upload-cloud"></em><span>Upload File</span></a></li>
-                                      <li><a href="#"><em class="icon ni ni-folder-plus"></em><span>Create Folder</span></a></li>
+                                      <li><a href="#create-folder" data-toggle="modal"><em class="icon ni ni-folder-plus"></em><span>Create Folder</span></a></li>
                                     </ul>
                                   </div>
                                 </div>
@@ -93,7 +93,7 @@
                               <div class="card-inner">
                                 <div class="card-title-group align-start mb-2">
                                   <div class="card-title">
-                                    <h6 class="title">All Files</h6>
+                                    <h6 class="title">Uploaded Files</h6>
                                   </div>
                                   <div class="card-tools">
                                     <a href="/file" class="link link-sm">View More</a>
@@ -113,56 +113,16 @@
                               <div class="card-inner">
                                 <div class="card-title-group align-start mb-2">
                                   <div class="card-title">
-                                    <h6 class="title">Starred Files</h6>
+                                    <h6 class="title">Department Folders</h6>
                                   </div>
                                   <div class="card-tools">
-                                    <a href="" class="link link-sm">View More</a>
+                                    <a href="/file" class="link link-sm">View More</a>
                                   </div>
                                 </div>
                                 <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
                                   <div class="nk-sale-data">
-                                    <span class="amount">0</span>
-                                    <span class="sub-title">Total files starred</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div><!-- .card -->
-                          </div><!-- .col -->
-                          <div class="col-xl-3 col-lg-3 col-md-3">
-                            <div class="card card-bordered">
-                              <div class="card-inner">
-                                <div class="card-title-group align-start mb-2">
-                                  <div class="card-title">
-                                    <h6 class="title">Shared Files</h6>
-                                  </div>
-                                  <div class="card-tools">
-                                    <a href="" class="link link-sm">View More</a>
-                                  </div>
-                                </div>
-                                <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
-                                  <div class="nk-sale-data">
-                                    <span class="amount">0</span>
-                                    <span class="sub-title">Files shared with me</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div><!-- .card -->
-                          </div><!-- .col -->
-                          <div class="col-xl-3 col-lg-3 col-md-3">
-                            <div class="card card-bordered">
-                              <div class="card-inner">
-                                <div class="card-title-group align-start mb-2">
-                                  <div class="card-title">
-                                    <h6 class="title">Deleted files</h6>
-                                  </div>
-                                  <div class="card-tools">
-                                    <a href="/subscription" class="link link-sm">View More</a>
-                                  </div>
-                                </div>
-                                <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
-                                  <div class="nk-sale-data">
-                                    <span class="amount">0</span>
-                                    <span class="sub-title">Total files deleted</span>
+                                    <span class="amount"><?=count($folders)?></span>
+                                    <span class="sub-title">Total department folders</span>
                                   </div>
                                 </div>
                               </div>
@@ -221,6 +181,46 @@
         </div><!-- .modal-content -->
       </div><!-- .modla-dialog -->
     </div><!-- .modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="create-folder">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Create Folder</h5>
+            <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+              <em class="icon ni ni-cross"></em>
+            </a>
+          </div>
+          <div class="modal-body">
+            <form action="" id="add-folder-form">
+              <div class="form-group">
+                <label class="form-label" for="folder-name">Folder Name <span style="color: red"> *</span></label>
+                <div class="form-control-wrap">
+                  <input autocomplete="off" type="text" class="form-control" id="folder-name" name="name">
+                </div>
+              </div>
+              <?php if($session->is_admin == 1):?>
+                <div class="form-group">
+                  <label class="form-label" for="folder-department">Department <span style="color: red"> *</span></label>
+                  <div class="form-control-wrap">
+                    <select class="form-select form-control" data-search="on" id="folder-department" name="department">
+                      <option value="">Default Option</option>
+                      <?php foreach ($departments as $department):?>
+                        <option value="<?= $department['department_id'] ?>"><?=$department['name']?></option>
+                      <?php endforeach;?>
+                    </select>
+                  </div>
+                </div>
+              <?php endif?>
+              <div class="form-group">
+                <a href="#" data-dismiss="modal" class="btn btn-light">Cancel</a>
+                <button type="submit" class="btn btn-primary ml-3">Create New Folder</button>
+              </div>
+            </form>
+          </div>
+        </div><!-- .modal-content -->
+      </div><!-- .modla-dialog -->
+    </div><!-- .modal -->
+
     <?php include('_scripts.php');?>
   </body>
 </html>

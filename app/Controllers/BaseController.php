@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\DepartmentModel;
 use App\Models\FileModel;
+use App\Models\FolderModel;
 use App\Models\UserModel;
 
 use CodeIgniter\Controller;
@@ -49,6 +50,7 @@ class BaseController extends Controller
 	protected $departmentModel;
 	protected $fileModel;
 	protected $userModel;
+  protected $folderModel;
 	/**
 	 * Constructor.
 	 *
@@ -70,5 +72,6 @@ class BaseController extends Controller
 		 $this->departmentModel = new DepartmentModel();
 		 $this->fileModel = new FileModel();
 		 $this->userModel = new UserModel();
+     $this->folderModel = new FolderModel();
 	}
 }

@@ -13,30 +13,30 @@
             <span class="nk-fmg-menu-text">Home</span>
           </a>
         </li>
-        <li class="<?=$uri->getSegment(1) == 'file' ? 'active': ''?>">
+        <li class="<?=$uri->getSegment(1) == 'file' || $uri->getSegment(1) == 'folder' ? 'active': ''?>">
           <a class="nk-fmg-menu-item" href="/file">
             <em class="icon ni ni-file-docs"></em>
-            <span class="nk-fmg-menu-text">Files</span>
+            <span class="nk-fmg-menu-text">File</span>
           </a>
         </li>
-        <li>
-          <a class="nk-fmg-menu-item" href="javascript:void(0)">
-            <em class="icon ni ni-star"></em>
-            <span class="nk-fmg-menu-text">Starred</span>
-          </a>
-        </li>
-        <li>
-          <a class="nk-fmg-menu-item" href="javascript:void(0)">
-            <em class="icon ni ni-share-alt"></em>
-            <span class="nk-fmg-menu-text">Shared</span>
-          </a>
-        </li>
-        <li>
-          <a class="nk-fmg-menu-item" href="javascript:void(0)">
-            <em class="icon ni ni-trash-alt"></em>
-            <span class="nk-fmg-menu-text">Recovery</span>
-          </a>
-        </li>
+<!--        <li>-->
+<!--          <a class="nk-fmg-menu-item" href="javascript:void(0)">-->
+<!--            <em class="icon ni ni-star"></em>-->
+<!--            <span class="nk-fmg-menu-text">Starred</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a class="nk-fmg-menu-item" href="javascript:void(0)">-->
+<!--            <em class="icon ni ni-share-alt"></em>-->
+<!--            <span class="nk-fmg-menu-text">Shared</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a class="nk-fmg-menu-item" href="javascript:void(0)">-->
+<!--            <em class="icon ni ni-trash-alt"></em>-->
+<!--            <span class="nk-fmg-menu-text">Recovery</span>-->
+<!--          </a>-->
+<!--        </li>-->
         <?php if($session->get('login') == 'admin'):?>
           <li class="<?=$uri->getSegment(1) == 'settings' ? 'active': ''?>">
             <a class="nk-fmg-menu-item" href="/settings/users">

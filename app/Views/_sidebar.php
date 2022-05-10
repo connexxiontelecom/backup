@@ -5,8 +5,8 @@
 <div class="nk-apps-sidebar is-dark">
   <div class="nk-apps-brand">
     <a href="/dashboard" class="logo-link">
-      <img class="logo-light logo-img" src="/assets/images/logo-small.png" srcset="./images/logo-small2x.png 2x" alt="logo">
-      <img class="logo-dark logo-img" src="/assets/images/logo-dark-small.png" srcset="./images/logo-dark-small2x.png 2x" alt="logo-dark">
+      <img class="logo-light logo-img" src="/assets/images/logo-small.png" alt="logo">
+      <img class="logo-dark logo-img" src="/assets/images/logo-dark-small.png" alt="logo-dark">
     </a>
   </div>
   <div class="nk-sidebar-element">

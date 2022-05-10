@@ -44,5 +44,43 @@
         sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
       return (bytes / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + sizes[i];
     }
+    $('form#add-folder-form').submit(function (e) {
+      e.preventDefault()
+      let name = $('#folder-name').val()
+      let department = $('#folder-department').val()
+      if (!name) {
+        Swal.fire("Invalid Submission", "A folder name is required!", "error");
+      } else {
+        let formData = new FormData(this)
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'This will add a new folder',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Confirm'
+        }).then(function (confirm) {
+          if (confirm.value) {
+            $.ajax({
+              url: '<?=site_url('file/create_folder')?>',
+              type: 'post',
+              data: formData,
+              success: function (data) {
+                if (data.success) {
+                  Swal.fire('Confirmed!', data.msg, 'success').then(() => {
+                    location.reload()
+                  })
+                } else {
+                  Swal.fire('Sorry!', data.msg, 'error')
+                  console.log(data.meta)
+                }
+              },
+              cache: false,
+              contentType: false,
+              processData: false
+            })
+          }
+        })
+      }
+    })
   })
 </script>

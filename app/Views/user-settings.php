@@ -177,6 +177,7 @@ $session = session();
             <div class="form-note">
               <a href="/settings/departments"><em class="icon ni ni-help mr-1"></em>Manage departments</a>
             </div>
+          </div>
           <div class="form-group mt-3">
             <label class="form-label" for="">User Role</label><br>
             <div class="custom-control custom-radio">

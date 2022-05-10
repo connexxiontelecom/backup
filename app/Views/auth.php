@@ -11,9 +11,9 @@
       <div class="nk-content ">
         <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
           <div class="brand-logo pb-4 text-center">
-            <a href="html/index.html" class="logo-link">
-              <img class="logo-light logo-img" src="/assets/images/logo-small.png" srcset="./images/logo-small2x.png 2x" alt="logo">
-              <img class="logo-dark logo-img" src="/assets/images/logo-dark-small.png" srcset="./images/logo-dark-small2x.png 2x" alt="logo-dark">
+            <a href="/" class="logo-link">
+              <img class="logo-light logo-img" src="/assets/images/logo-small.png" alt="logo">
+              <img class="logo-dark logo-img" src="/assets/images/logo-dark-small.png" alt="logo-dark">
             </a>
           </div>
           <div class="card card-bordered">
@@ -56,7 +56,7 @@
           <div class="container wide-lg">
             <div class="nk-block-content text-center">
               <p class="text-soft">
-                &copy; 2021 Backup Service. Powered by <a href="https://telecom.connexxiongroup.com" target="_blank">Connexxion Telecom</a>
+                &copy; <?=date("Y")?> Backup Service. Powered by <a href="https://connexxiontelecom.com" target="_blank">Connexxion Telecom</a>
               </p>
             </div>
           </div>

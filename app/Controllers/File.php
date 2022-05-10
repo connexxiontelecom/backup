@@ -8,7 +8,29 @@ class File extends BaseController {
 
   public function index() {
     if ($this->session->active) {
-      $page_data['files'] = $this->fileModel->where('user_id', $this->session->user_id)->findAll();
+      if ($this->session->is_admin == 1) {
+        $page_data['departments'] = $this->departmentModel->findAll();
+        $page_data['folders'] = $this->folderModel->where('containing_folder', 0)->findAll();
+        $files = $this->fileModel->where('containing_folder', 0)->findAll();
+        foreach ($files as $key => $file) {
+          $file_creator = $file['user_id'];
+          $user = $this->userModel->where('user_id', $file_creator)->first();
+          $files[$key]['creator'] = $user;
+        }
+        $page_data['files'] = $files;
+      } else {
+        $page_data['folders'] = $this->folderModel->where(['department_id' => $this->session->department_id, 'containing_folder' => 0])->findAll();
+        $page_data['files'] = [];
+        $files = $this->fileModel->where('containing_folder', 0)->findAll();
+        foreach ($files as $file) {
+          $file_creator = $file['user_id'];
+          $user = $this->userModel->where('user_id', $file_creator)->first();
+          if ($user['department_id'] == $this->session->department_id) {
+            $file['creator'] = $user;
+            $page_data['files'][] = $file;
+          }
+        }
+      }
       return view('files', $page_data);
     }
     return redirect('auth');
@@ -93,6 +115,42 @@ class File extends BaseController {
       }
       $response_data['success'] = false;
       $response_data['msg'] = 'File not found';
+      return $this->response->setJSON($response_data);
+    }
+    return redirect('auth');
+  }
+
+  public function create_folder() {
+    if ($this->session->active) {
+      $this->validation->setRules([
+        'name' => 'required|is_unique[folders.name]',
+      ]);
+      $response_data = array();
+      if ($this->validation->withRequest($this->request)->run()) {
+        $post_data = $this->request->getPost();
+        if ($this->session->is_admin == 1 && $post_data['department']) {
+          $department = $post_data['department'];
+        } else {
+          $department = $this->session->department_id;
+        }
+        $folder_data = array(
+          'name' => $post_data['name'],
+          'department_id' => $department,
+          'containing_folder' => 0,
+        );
+        $new_folder = $this->folderModel->save($folder_data);
+        if ($new_folder) {
+          $response_data['success'] = true;
+          $response_data['msg'] = 'Successfully created new folder';
+        } else {
+          $response_data['success'] = false;
+          $response_data['msg'] = 'There was a problem creating new department';
+        }
+      } else {
+        $response_data['success'] = false;
+        $response_data['msg'] = 'There was a problem creating new department';
+        $response_data['meta'] = $this->validation->getErrors();
+      }
       return $this->response->setJSON($response_data);
     }
     return redirect('auth');

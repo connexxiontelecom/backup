@@ -57,7 +57,7 @@ function format_bytes($bytes, $precision = 2) {
                   <div class="nk-block-head nk-block-head-sm">
                     <div class="nk-block-between position-relative">
                       <div class="nk-block-head-content">
-                        <h3 class="nk-block-title page-title">Files</h3>
+                        <h3 class="nk-block-title page-title"><?=$folder['name']?></h3>
                       </div>
                       <div class="nk-block-head-content">
                         <ul class="nk-block-tools g-1">
@@ -85,6 +85,9 @@ function format_bytes($bytes, $precision = 2) {
                           <button class="search-submit btn btn-icon"><em class="icon ni ni-search"></em></button>
                         </div>
                       </div><!-- .search-wrap -->
+                      <div class="nk-block-head-content d-none d-lg-block text-muted">
+                        <?=$folder['department']['name']?>
+                      </div>
                     </div>
                   </div>
                   <div class="nk-fmg-listing nk-block">
@@ -132,7 +135,7 @@ function format_bytes($bytes, $precision = 2) {
                                 <div class="nk-file-name">
                                   <div class="nk-file-name-text">
                                     <a href="<?=site_url('folder/view_folder/').$folder['folder_id']?>" class="title"><?=$folder['name']?></a>
-<!--                                    <div class="nk-file-star asterisk"><a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a></div>-->
+                                    <!--                                    <div class="nk-file-star asterisk"><a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a></div>-->
                                   </div>
                                 </div>
                               </div>
@@ -146,12 +149,13 @@ function format_bytes($bytes, $precision = 2) {
                               </div>
                             </div>
                             <div class="nk-file-members">
-<!--                              <div class="tb-lead">--><?//=$file['creator']['name']?><!--</div>-->
+                              <!--                              <div class="tb-lead">--><?//=$file['creator']['name']?><!--</div>-->
                             </div>
                             <div class="nk-file-actions">
                             </div>
                           </div><!-- .nk-file -->
                         <?php endforeach;?>
+
 
                         <?php foreach ($files as $file):?>
                           <div class="nk-file-item nk-file">
@@ -168,12 +172,12 @@ function format_bytes($bytes, $precision = 2) {
                                       <path d="M27.2223,43H44.7086s2.325-.2815.7357-1.897l-5.6034-5.4985s-1.5115-1.7913-3.3357.7933L33.56,40.4707a.6887.6887,0,0,1-1.0186.0486l-1.9-1.6393s-1.3291-1.5866-2.4758,0c-.6561.9079-2.0261,2.8489-2.0261,2.8489S25.4268,43,27.2223,43Z" style="fill:#fff" />
                                       <path d="M25,20.556A1.444,1.444,0,0,1,23.556,22H16l9-11h0Z" style="fill:#b5b3ff" />
                                     </svg>
-<!--                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 72 72">-->
-<!--                                      <path fill="#6C87FE" d="M57.5,31h-23c-1.4,0-2.5-1.1-2.5-2.5v-10c0-1.4,1.1-2.5,2.5-2.5h23c1.4,0,2.5,1.1,2.5,2.5v10C60,29.9,58.9,31,57.5,31z" />-->
-<!--                                      <path fill="#8AA3FF" d="M59.8,61H12.2C8.8,61,6,58,6,54.4V17.6C6,14,8.8,11,12.2,11h18.5c1.7,0,3.3,1,4.1,2.6L38,24h21.8c3.4,0,6.2,2.4,6.2,6v24.4C66,58,63.2,61,59.8,61z" />-->
-<!--                                      <path display="none" fill="#8AA3FF" d="M62.1,61H9.9C7.8,61,6,59.2,6,57c0,0,0-31.5,0-42c0-2.2,1.8-4,3.9-4h19.3c1.6,0,3.2,0.2,3.9,2.3l2.7,6.8c0.5,1.1,1.6,1.9,2.8,1.9h23.5c2.2,0,3.9,1.8,3.9,4v31C66,59.2,64.2,61,62.1,61z" />-->
-<!--                                      <path fill="#798BFF" d="M7.7,59c2.2,2.4,4.7,2,6.3,2h45c1.1,0,3.2,0.1,5.3-2H7.7z" />-->
-<!--                                    </svg>-->
+                                    <!--                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 72 72">-->
+                                    <!--                                      <path fill="#6C87FE" d="M57.5,31h-23c-1.4,0-2.5-1.1-2.5-2.5v-10c0-1.4,1.1-2.5,2.5-2.5h23c1.4,0,2.5,1.1,2.5,2.5v10C60,29.9,58.9,31,57.5,31z" />-->
+                                    <!--                                      <path fill="#8AA3FF" d="M59.8,61H12.2C8.8,61,6,58,6,54.4V17.6C6,14,8.8,11,12.2,11h18.5c1.7,0,3.3,1,4.1,2.6L38,24h21.8c3.4,0,6.2,2.4,6.2,6v24.4C66,58,63.2,61,59.8,61z" />-->
+                                    <!--                                      <path display="none" fill="#8AA3FF" d="M62.1,61H9.9C7.8,61,6,59.2,6,57c0,0,0-31.5,0-42c0-2.2,1.8-4,3.9-4h19.3c1.6,0,3.2,0.2,3.9,2.3l2.7,6.8c0.5,1.1,1.6,1.9,2.8,1.9h23.5c2.2,0,3.9,1.8,3.9,4v31C66,59.2,64.2,61,62.1,61z" />-->
+                                    <!--                                      <path fill="#798BFF" d="M7.7,59c2.2,2.4,4.7,2,6.3,2h45c1.1,0,3.2,0.1,5.3-2H7.7z" />-->
+                                    <!--                                    </svg>-->
                                   </span>
                                 </div>
                                 <div class="nk-file-name">
@@ -201,19 +205,20 @@ function format_bytes($bytes, $precision = 2) {
                                 <a href="" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                   <ul class="link-list-plain no-bdr">
-<!--                                    <li><a href="#file-details" data-toggle="modal"><em class="icon ni ni-eye"></em><span>Details</span></a></li>-->
-<!--                                    <li><a href="#file-share" data-toggle="modal"><em class="icon ni ni-share"></em><span>Share</span></a></li>-->
-<!--                                    <li><a href="#file-copy" data-toggle="modal"><em class="icon ni ni-copy"></em><span>Copy</span></a></li>-->
-<!--                                    <li><a href="#file-move" data-toggle="modal"><em class="icon ni ni-forward-arrow"></em><span>Move</span></a></li>-->
+                                    <!--                                    <li><a href="#file-details" data-toggle="modal"><em class="icon ni ni-eye"></em><span>Details</span></a></li>-->
+                                    <!--                                    <li><a href="#file-share" data-toggle="modal"><em class="icon ni ni-share"></em><span>Share</span></a></li>-->
+                                    <!--                                    <li><a href="#file-copy" data-toggle="modal"><em class="icon ni ni-copy"></em><span>Copy</span></a></li>-->
+                                    <!--                                    <li><a href="#file-move" data-toggle="modal"><em class="icon ni ni-forward-arrow"></em><span>Move</span></a></li>-->
                                     <li><a href="/file/download_file/<?=$file['file_id']?>" class="file-dl-toast"><em class="icon ni ni-download"></em><span>Download</span></a></li>
-<!--                                    <li><a href="#"><em class="icon ni ni-pen"></em><span>Rename</span></a></li>-->
-<!--                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>-->
+                                    <!--                                    <li><a href="#"><em class="icon ni ni-pen"></em><span>Rename</span></a></li>-->
+                                    <!--                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>-->
                                   </ul>
                                 </div>
                               </div>
                             </div>
                           </div><!-- .nk-file -->
                         <?php endforeach;?>
+
                       </div>
                     </div><!-- .nk-files -->
                   </div><!-- .nk-block -->
@@ -248,6 +253,7 @@ function format_bytes($bytes, $precision = 2) {
             </div>
           </div>
         </div>
+        <input type="hidden" value="<?=$folder['folder_id']?>" id="containing-folder">
         <div class="alert alert-icon alert-primary" role="alert" hidden id="file-details">
           <em class="icon ni ni-alert-circle"></em>
           <strong>File upload is in progress</strong>. Details for this file include: <br>
@@ -261,7 +267,7 @@ function format_bytes($bytes, $precision = 2) {
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             <span> Uploading... </span>
           </button>
-          <button type="button" class="btn btn-primary ml-3" id="submit-file">
+          <button type="button" class="btn btn-primary ml-3" id="folder-submit-file">
             Submit File
           </button>
         </div>
@@ -269,7 +275,6 @@ function format_bytes($bytes, $precision = 2) {
     </div><!-- .modal-content -->
   </div><!-- .modla-dialog -->
 </div><!-- .modal -->
-
 <div class="modal fade" tabindex="-1" role="dialog" id="create-folder">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
@@ -280,26 +285,14 @@ function format_bytes($bytes, $precision = 2) {
         </a>
       </div>
       <div class="modal-body">
-        <form action="" id="add-folder-form">
+        <form action="" id="add-folder-form-2">
           <div class="form-group">
             <label class="form-label" for="folder-name">Folder Name <span style="color: red"> *</span></label>
             <div class="form-control-wrap">
               <input autocomplete="off" type="text" class="form-control" id="folder-name" name="name">
             </div>
           </div>
-          <?php if($session->is_admin == 1):?>
-            <div class="form-group">
-              <label class="form-label" for="folder-department">Department <span style="color: red"> *</span></label>
-              <div class="form-control-wrap">
-                <select class="form-select form-control" data-search="on" id="folder-department" name="department">
-                  <option value="">Default Option</option>
-                  <?php foreach ($departments as $department):?>
-                    <option value="<?= $department['department_id'] ?>"><?=$department['name']?></option>
-                  <?php endforeach;?>
-                </select>
-              </div>
-            </div>
-          <?php endif?>
+          <input type="hidden" value="<?=$folder['folder_id']?>" id="containing-folder" name="folder">
           <div class="form-group">
             <a href="#" data-dismiss="modal" class="btn btn-light">Cancel</a>
             <button type="submit" class="btn btn-primary ml-3">Create New Folder</button>
@@ -310,7 +303,8 @@ function format_bytes($bytes, $precision = 2) {
   </div><!-- .modla-dialog -->
 </div><!-- .modal -->
 
+
 <?php include('_scripts.php');?>
-<?php //include('_index-scripts.php');?>
+<?php include('_folder-scripts.php');?>
 </body>
 </html>
