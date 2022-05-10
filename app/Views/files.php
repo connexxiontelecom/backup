@@ -103,6 +103,11 @@ function format_bytes($bytes, $precision = 2) {
                           <div class="nk-file-members">
                             <div class="tb-head">Created/Uploaded By</div>
                           </div>
+                          <?php if ($session->is_admin == 1):?>
+                            <div class="nk-file-members">
+                              <div class="tb-head">Department</div>
+                            </div>
+                          <?php endif?>
                           <div class="nk-file-actions">
                             <div class="dropdown">
                               <a href="javascript:void(0)" class="dropdown-toggle btn btn-sm btn-icon btn-trigger"><em class="icon ni ni-more-h"></em></a>
@@ -148,6 +153,11 @@ function format_bytes($bytes, $precision = 2) {
                             <div class="nk-file-members">
 <!--                              <div class="tb-lead">--><?//=$file['creator']['name']?><!--</div>-->
                             </div>
+                            <?php if ($session->is_admin == 1):?>
+                              <div class="nk-file-members">
+                                <div class="tb-lead"><?=$folder['department']['name']?></div>
+                              </div>
+                            <?php endif?>
                             <div class="nk-file-actions">
                             </div>
                           </div><!-- .nk-file -->
@@ -193,9 +203,13 @@ function format_bytes($bytes, $precision = 2) {
                               </div>
                             </div>
                             <div class="nk-file-members">
-
                               <div class="tb-lead"><?=$file['creator']['name']?></div>
                             </div>
+                            <?php if ($session->is_admin == 1):?>
+                              <div class="nk-file-members">
+                                <div class="tb-lead"><?=$file['department']['name']?></div>
+                              </div>
+                            <?php endif?>
                             <div class="nk-file-actions">
                               <div class="dropdown">
                                 <a href="" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
@@ -207,7 +221,9 @@ function format_bytes($bytes, $precision = 2) {
 <!--                                    <li><a href="#file-move" data-toggle="modal"><em class="icon ni ni-forward-arrow"></em><span>Move</span></a></li>-->
                                     <li><a href="/file/download_file/<?=$file['file_id']?>" class="file-dl-toast"><em class="icon ni ni-download"></em><span>Download</span></a></li>
 <!--                                    <li><a href="#"><em class="icon ni ni-pen"></em><span>Rename</span></a></li>-->
-<!--                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>-->
+                                    <?php if ($session->is_admin == 1):?>
+                                      <li><a href="javascript:void(0)" onclick="deleteFile(<?=$file['file_id']?>)"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
+                                    <?php endif?>
                                   </ul>
                                 </div>
                               </div>

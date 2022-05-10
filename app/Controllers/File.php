@@ -10,12 +10,19 @@ class File extends BaseController {
     if ($this->session->active) {
       if ($this->session->is_admin == 1) {
         $page_data['departments'] = $this->departmentModel->findAll();
-        $page_data['folders'] = $this->folderModel->where('containing_folder', 0)->findAll();
+        $folders = $this->folderModel->where('containing_folder', 0)->findAll();
+        foreach ($folders as $key => $folder) {
+          $department = $this->departmentModel->where('department_id', $folder['department_id'])->first();
+          $folders[$key]['department'] = $department;
+        }
+        $page_data['folders'] = $folders;
         $files = $this->fileModel->where('containing_folder', 0)->findAll();
         foreach ($files as $key => $file) {
           $file_creator = $file['user_id'];
           $user = $this->userModel->where('user_id', $file_creator)->first();
           $files[$key]['creator'] = $user;
+          $department = $this->departmentModel->where('department_id', $user['department_id'])->first();
+          $files[$key]['department'] = $department;
         }
         $page_data['files'] = $files;
       } else {
@@ -151,6 +158,17 @@ class File extends BaseController {
         $response_data['msg'] = 'There was a problem creating new department';
         $response_data['meta'] = $this->validation->getErrors();
       }
+      return $this->response->setJSON($response_data);
+    }
+    return redirect('auth');
+  }
+
+  public function delete_file($file_id) {
+    if ($this->session->active) {
+      $response_data = array();
+      $this->fileModel->where('file_id', $file_id)->delete();
+      $response_data['success'] = true;
+      $response_data['msg'] = 'Successfully deleted file';
       return $this->response->setJSON($response_data);
     }
     return redirect('auth');

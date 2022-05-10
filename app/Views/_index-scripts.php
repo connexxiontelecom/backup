@@ -83,4 +83,30 @@
       }
     })
   })
+  function deleteFile(file) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This will delete the file from the interface',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Confirm'
+    }).then(function (confirm) {
+      if (confirm.value) {
+        $.ajax({
+          url: `<?=site_url('file/delete_file')?>/${file}`,
+          type: 'get',
+          success: function (data) {
+            if (data.success) {
+              Swal.fire('Confirmed!', data.msg, 'success').then(() => {
+                location.reload()
+              })
+            } else {
+              Swal.fire('Sorry!', data.msg, 'error')
+              console.log(data.meta)
+            }
+          }
+        })
+      }
+    })
+  }
 </script>

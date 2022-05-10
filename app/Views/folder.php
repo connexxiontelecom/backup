@@ -86,7 +86,7 @@ function format_bytes($bytes, $precision = 2) {
                         </div>
                       </div><!-- .search-wrap -->
                       <div class="nk-block-head-content d-none d-lg-block text-muted">
-                        <?=$folder['department']['name']?>
+                        <?=$folder['department']['name']?> Department
                       </div>
                     </div>
                   </div>
@@ -211,7 +211,9 @@ function format_bytes($bytes, $precision = 2) {
                                     <!--                                    <li><a href="#file-move" data-toggle="modal"><em class="icon ni ni-forward-arrow"></em><span>Move</span></a></li>-->
                                     <li><a href="/file/download_file/<?=$file['file_id']?>" class="file-dl-toast"><em class="icon ni ni-download"></em><span>Download</span></a></li>
                                     <!--                                    <li><a href="#"><em class="icon ni ni-pen"></em><span>Rename</span></a></li>-->
-                                    <!--                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>-->
+                                    <?php if ($session->is_admin == 1):?>
+                                      <li><a href="javascript:void(0)" onclick="deleteFile(<?=$file['file_id']?>)"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
+                                    <?php endif?>
                                   </ul>
                                 </div>
                               </div>

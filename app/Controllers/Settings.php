@@ -100,4 +100,26 @@ class Settings extends BaseController
     }
     return redirect('auth');
   }
+
+  public function delete_user($user_id) {
+    if ($this->session->active) {
+      $response_data = array();
+      if ($user_id == $this->session->user_id) {
+        $response_data['success'] = false;
+        $response_data['msg'] = 'You cannot delete your own account while logged in boss.';
+        return $this->response->setJSON($response_data);
+      }
+      $files = $this->fileModel->where('user_id', $user_id)->findAll();
+      if (!empty($files)) {
+        $response_data['success'] = false;
+        $response_data['msg'] = 'You cannot delete a user with uploaded files';
+        return $this->response->setJSON($response_data);
+      }
+      $this->userModel->where('user_id', $user_id)->delete();
+      $response_data['success'] = true;
+      $response_data['msg'] = 'Successfully deleted user';
+      return $this->response->setJSON($response_data);
+    }
+    return redirect('auth');
+  }
 }

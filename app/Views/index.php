@@ -84,30 +84,75 @@
                               <button class="search-submit btn btn-icon"><em class="icon ni ni-search"></em></button>
                             </div>
                           </div><!-- .search-wrap -->
+                          <div class="nk-block-head-content d-none d-lg-block text-muted">
+                            <?=$department['name']?> Department
+                          </div>
                         </div>
                       </div>
                       <div class="nk-block">
                         <div class="row g-gs">
-                          <div class="col-xl-3 col-lg-3 col-md-3">
-                            <div class="card card-bordered">
-                              <div class="card-inner">
-                                <div class="card-title-group align-start mb-2">
-                                  <div class="card-title">
-                                    <h6 class="title">Uploaded Files</h6>
+                          <?php if ($session->is_admin == 1):?>
+                            <div class="col-xl-3 col-lg-3 col-md-3">
+                              <div class="card card-bordered">
+                                <div class="card-inner">
+                                  <div class="card-title-group align-start mb-2">
+                                    <div class="card-title">
+                                      <h6 class="title">Uploaded Files</h6>
+                                    </div>
+                                    <div class="card-tools">
+                                      <a href="/file" class="link link-sm">View More</a>
+                                    </div>
                                   </div>
-                                  <div class="card-tools">
-                                    <a href="/file" class="link link-sm">View More</a>
+                                  <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
+                                    <div class="nk-sale-data">
+                                      <span class="amount"><?=count($files)?></span>
+                                      <span class="sub-title">Total files uploaded</span>
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
-                                  <div class="nk-sale-data">
-                                    <span class="amount"><?=count($files)?></span>
-                                    <span class="sub-title">Total files uploaded</span>
+                              </div><!-- .card -->
+                            </div><!-- .col -->
+                            <div class="col-xl-3 col-lg-3 col-md-3">
+                              <div class="card card-bordered">
+                                <div class="card-inner">
+                                  <div class="card-title-group align-start mb-2">
+                                    <div class="card-title">
+                                      <h6 class="title">Created Folders</h6>
+                                    </div>
+                                    <div class="card-tools">
+                                      <a href="/file" class="link link-sm">View More</a>
+                                    </div>
+                                  </div>
+                                  <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
+                                    <div class="nk-sale-data">
+                                      <span class="amount"><?=count($all_folders)?></span>
+                                      <span class="sub-title">Total folders created</span>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div><!-- .card -->
-                          </div><!-- .col -->
+                              </div><!-- .card -->
+                            </div><!-- .col -->
+                            <div class="col-xl-3 col-lg-3 col-md-3">
+                              <div class="card card-bordered">
+                                <div class="card-inner">
+                                  <div class="card-title-group align-start mb-2">
+                                    <div class="card-title">
+                                      <h6 class="title">System Users</h6>
+                                    </div>
+                                    <div class="card-tools">
+                                      <a href="/settings/users" class="link link-sm">View More</a>
+                                    </div>
+                                  </div>
+                                  <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
+                                    <div class="nk-sale-data">
+                                      <span class="amount"><?=count($users)?></span>
+                                      <span class="sub-title">System users created</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><!-- .card -->
+                            </div><!-- .col -->
+                          <?php endif;?>
                           <div class="col-xl-3 col-lg-3 col-md-3">
                             <div class="card card-bordered">
                               <div class="card-inner">

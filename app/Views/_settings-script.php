@@ -94,7 +94,32 @@
         })
       }
     })
-
-
   })
+
+  function deleteUser(user) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This will delete the user',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Confirm'
+    }).then(function (confirm) {
+      if (confirm.value) {
+        $.ajax({
+          url: `<?=site_url('settings/delete_user')?>/${user}`,
+          type: 'get',
+          success: function (data) {
+            if (data.success) {
+              Swal.fire('Confirmed!', data.msg, 'success').then(() => {
+                location.reload()
+              })
+            } else {
+              Swal.fire('Sorry!', data.msg, 'error')
+              console.log(data.meta)
+            }
+          }
+        })
+      }
+    })
+  }
 </script>

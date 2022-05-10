@@ -108,7 +108,7 @@ $session = session();
                                 <?php endif;?>
                               </td>
                               <td style="width: 10%">
-                                <a href="javascript:void(0)" class="link link-sm"><span>Edit</span></a>
+                                <a href="javascript:void(0)" class="link link-sm text-danger" onclick="deleteUser(<?=$user['user_id']?>)"><span>Delete</span></a>
                               </td>
                             </tr>
                           <?php endforeach;?>
